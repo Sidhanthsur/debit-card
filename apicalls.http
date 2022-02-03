@@ -1,0 +1,12 @@
+GET https://laezcpnnuxaabqgnkhmd.supabase.co/rest/v1/trial
+apiKey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0Mzg5MjA0OSwiZXhwIjoxOTU5NDY4MDQ5fQ.tJtQwCRTGtjN3SMTyV5eWFP0umMnBu9ZUunGfXHT-sE
+
+###
+
+POST https://laezcpnnuxaabqgnkhmd.supabase.co/rest/v1/trial
+apiKey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0Mzg5MjA0OSwiZXhwIjoxOTU5NDY4MDQ5fQ.tJtQwCRTGtjN3SMTyV5eWFP0umMnBu9ZUunGfXHT-sE
+Content-Type: application/json
+
+{
+    "name": "sid2"
+}
