@@ -16,6 +16,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@nuxtjs/axios": "^5.13.6",
     "core-js": "^3.19.3",
     "json-server": "^0.17.0",
