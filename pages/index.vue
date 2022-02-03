@@ -10,12 +10,31 @@
       </div>
       <currency-unit />
     </div>
+
+    <div>
+      <debit-card :card="card" />
+    </div>
   </div>
 </template>
 
 <script>
+import DebitCard from '~/components/DebitCard.vue'
 export default {
   name: 'IndexPage',
+  components: { DebitCard },
+  data () {
+    return {
+      card: {
+        name: 'Sidhanth Surana',
+        number: '4111111111111111',
+        exp: {
+          month: '03',
+          year: '22'
+        },
+        cvv: 233
+      }
+    }
+  }
 }
 </script>
 <style>
