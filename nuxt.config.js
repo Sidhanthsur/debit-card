@@ -30,6 +30,7 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
     '@nuxtjs/google-fonts',
+    '@nuxtjs/fontawesome',
   ],
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -53,5 +54,13 @@ export default {
     families: {
       Nunito: true
     }
+  },
+  fontawesome: {
+    component: "fa",
+    icons: {
+      regular: true,
+      solid: true,
+    },
+    addCss: false
   }
 }
