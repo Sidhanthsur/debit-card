@@ -11,8 +11,8 @@
       <currency-unit />
     </div>
 
-    <div>
-      <debit-card :card="card" />
+    <div class="flex mx-auto debit-card__card-container">
+      <debit-card :card="card" class="mx-auto" />
     </div>
   </div>
 </template>

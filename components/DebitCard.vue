@@ -1,5 +1,5 @@
 <template>
-  <div class="relative inline-block z-10">
+  <div class="relative z-10 main-container">
     <div class="tappable-container" @click="toggleEyeClick">
         <img :src="showCardNumber ? hideEye : showEye" alt="eye-icon" class="eye-icon">
         <div></div>
@@ -77,6 +77,11 @@ export default {
 @import "~assets/scss/colors";
 @import "~assets/scss/variables";
 
+.main-container {
+  width: 366px;
+  height: 220px;
+}
+
 .tappable-container {
     background-color: white;
     width: 150px;
@@ -94,6 +99,7 @@ export default {
     display: flex;
     padding-top: 4px;
     padding-left: 12px;
+    cursor: pointer;
 }
 
 .eye-icon {
@@ -102,8 +108,6 @@ export default {
 
 .card-container {
   background-color: $aspire-green;
-  width: 366px;
-  height: 220px;
   border-radius: 12px;
   color: white;
   padding: $default-spacing;
