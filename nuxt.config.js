@@ -62,5 +62,9 @@ export default {
       solid: true,
     },
     addCss: false
-  }
+  },
+  // mode: 'static',
+  //  router: {
+  //     base: '/debit-card/'
+  //  }
 }

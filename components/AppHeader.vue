@@ -4,7 +4,7 @@
           v-if="showBackButton"
           class="app_header__back-button"
           :icon="['fas', 'chevron-left']" />
-        <img src="~/assets/images/Logo.png" class="app_header__logo" />
+        <img src="~/static/Logo.svg" class="app_header__logo" />
     </div>
 </template>
 <script>

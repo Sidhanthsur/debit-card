@@ -1,13 +1,17 @@
 <template>
   <div class="relative inline-block z-10">
-    <div class="tappable-container">
-        Show card number
+    <div class="tappable-container" @click="toggleEyeClick">
+        <img :src="showCardNumber ? hideEye : showEye" alt="eye-icon" class="eye-icon">
+        <div></div>
+        <div class="ml-1">
+            {{ showCardNumber ? "Hide card number" : "Show card number" }}
+        </div>
     </div>
    
     <div class="card-container">
       <img
         class="logo"
-        src="@/assets/images/aspireLong.svg"
+        src="~/static/aspireLong.svg"
         alt="aspire-logo"
       />
       <h1 class="default-margin">
@@ -25,14 +29,17 @@
 
       <div class="bottom-container">
         <div>Thru: {{ card.exp.month }} / {{ card.exp.year }}</div>
-        <div class="cvv">CVV: {{ card.cvv }}</div>
+        <div class="cvv">CVV: {{ showCardNumber ? card.cvv : '* * *' }}</div>
       </div>
 
-      <img class="logo" src="@/assets/images/visaLogo.svg" alt="aspire-logo" />
+      <img class="logo" src="~/static/visaLogo.svg" alt="aspire-logo" />
     </div>
   </div>
 </template>
 <script>
+
+import hideEye from '~/static/hideEye.svg'
+import showEye from '~/static/showEye.svg'
 export default {
   props: {
     card: {
@@ -42,11 +49,27 @@ export default {
   },
   data() {
     return {
-      arrayOfCardNumbers: []
+      arrayOfCardNumbers: [],
+      showCardNumber: false
     };
   },
   created() {
-    this.arrayOfCardNumbers = this.card.number.match(/.{1,4}/g);
+    this.allNumbers = this.card.number.match(/.{1,4}/g);
+    this.hiddenArray = ['••••','••••','••••']
+    this.hiddenArray.push(this.allNumbers[3])
+    this.arrayOfCardNumbers = this.hiddenArray;
+    this.hideEye = hideEye;
+    this.showEye = showEye;
+  },
+  methods: {
+      toggleEyeClick () {
+          this.showCardNumber = !this.showCardNumber;
+          if (this.showCardNumber) {
+            this.arrayOfCardNumbers = this.allNumbers;
+          } else {
+            this.arrayOfCardNumbers = this.hiddenArray;
+          }
+      }
   }
 };
 </script>
@@ -66,6 +89,15 @@ export default {
     top: -$default-spacing;
     bottom: 10px;
     z-index: -1;
+    font-size: 12px;
+    color: $aspire-green;
+    display: flex;
+    padding-top: 4px;
+    padding-left: 12px;
+}
+
+.eye-icon {
+  @include square(16px)
 }
 
 .card-container {
