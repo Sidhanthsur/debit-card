@@ -1,6 +1,7 @@
 <template>
   <div class="debit-card__main-container">
-    <app-header />
+   <div class="debit-card__top_container">
+      <app-header />
     <div class="mt-2">
       <h1>
         Debit Card
@@ -10,18 +11,25 @@
       </div>
       <currency-unit />
     </div>
+   </div>
 
-    <div class="flex mx-auto debit-card__card-container">
+    <!-- <div class="flex mx-auto debit-card__card-container">
       <debit-card :card="card" class="mx-auto" />
+    </div> -->
+    <div class="relative">
+       <debit-card :card="card" class="mx-auto" />
+    <background-curved />
     </div>
+ 
   </div>
 </template>
 
 <script>
+import BackgroundCurved from '~/components/BackgroundCurved.vue'
 import DebitCard from '~/components/DebitCard.vue'
 export default {
   name: 'IndexPage',
-  components: { DebitCard },
+  components: { DebitCard, BackgroundCurved },
   data () {
     return {
       card: {
