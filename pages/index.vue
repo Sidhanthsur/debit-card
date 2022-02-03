@@ -1,7 +1,15 @@
 <template>
   <div class="debit-card__main-container">
     <app-header />
-    <h1>Hi</h1>
+    <div class="mt-2">
+      <h1>
+        Debit Card
+      </h1>
+      <div class="debit-card__balance-title text-white">
+        Available Balance
+      </div>
+      <currency-unit />
+    </div>
   </div>
 </template>
 

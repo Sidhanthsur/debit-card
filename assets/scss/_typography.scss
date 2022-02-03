@@ -1,0 +1,9 @@
+@mixin h1 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 130%;
+}
+
+@mixin mediumTitle {
+  font-size: 14px;
+}
