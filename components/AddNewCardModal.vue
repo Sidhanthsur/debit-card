@@ -19,7 +19,6 @@ export default {
   },
   methods: {
       onSubmit() {
-          console.log('h')
           this.$emit('on-submit', this.name)
       }
   } 
@@ -28,7 +27,7 @@ export default {
 <style lang="scss" scoped>
 .new-card__main-container {
     background-color: white;
-    width: 60%;
+    width: 50%;
     height: 200px;
     display: flex;
     justify-content: center;
