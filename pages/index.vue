@@ -110,7 +110,7 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 @import "~/assets/styles/debit.scss";
 
 .card-action__container {
@@ -120,18 +120,39 @@ export default {
 .carousel-container {
   width: 400px;
   height: 280px;
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
+  .agile__list {
+    height: 260px;
+  }
+  .agile__actions {
+    height: 12px;
+    .agile__dots {
+      .agile__dot {
+      @include square(8px);
+      border-radius: 50%;
+      background-color: #01D16780;
+      margin: 0 4px;
+      }
+      .agile__dot--current {
+      width: 16px;
+      height: 8px;
+      border-radius: 8px;
+      background-color: #01D167;
+      }
+    
+    }
+  }
 }
+
 
 @media only screen and (max-width: 600px) {
   .carousel-container {
     width: 366px;
-    display: flex;
-    justify-content: center;
     height: 280px;
     margin: 0 auto;
   }
+
   .card-action__container {
     margin-left: 0px;
   }
