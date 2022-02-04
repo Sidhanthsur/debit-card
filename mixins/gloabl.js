@@ -3,6 +3,10 @@ import Card from '~/assets/images/Card.svg'
 import Payments from '~/assets/images/Payments.svg'
 import Credit from '~/assets/images/Credit.svg'
 import Account from '~/assets/images/Account.svg'
+import HomeGrey from '~/assets/images/HomeGrey.svg'
+import PaymentsGrey from '~/assets/images/PaymentsGrey.svg'
+import CreditGrey from '~/assets/images/CreditGrey.svg'
+import AccountGrey from '~/assets/images/AccountGrey.svg'
 
 export default {
   computed: {
@@ -13,23 +17,28 @@ export default {
         return [
           {
             label: 'Home',
-            logo: Home
+            logo: Home,
+            mobileLogo: HomeGrey
           },
           {
             label: 'Cards',
-            logo: Card
+            logo: Card,
+            mobileLogo: Card,
           },
           {
             label: 'Payments',
-            logo: Payments
+            logo: Payments,
+            mobileLogo: PaymentsGrey
           },
           {
             label: 'Credit',
-            logo: Credit
+            logo: Credit,
+            mobileLogo: CreditGrey
           },
           {
             label: 'Settings',
-            logo: Account
+            logo: Account,
+            mobileLogo: AccountGrey
           }
         ]
       }
