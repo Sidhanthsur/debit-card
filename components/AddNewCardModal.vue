@@ -3,7 +3,7 @@
         <h1 class="mb-6">Adding a new card</h1>
         <input v-model="name" class="input-container p-2" placeholder="Enter card holder name" type="text">
         <div class="mt-4">
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click="onSubmit">Submit</button>
             <button
              class="bg-transparent text-blue-700 font-semibold py-2 px-4 border border-blue-500 rounded"
               @click="$emit('cancel')">Cancel</button>
@@ -15,6 +15,12 @@ export default {
   data () {
       return {
           name: ''
+      }
+  },
+  methods: {
+      onSubmit() {
+          console.log('h')
+          this.$emit('on-submit', this.name)
       }
   } 
 }

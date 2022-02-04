@@ -52,6 +52,22 @@ export const actions = {
     allCards.splice(index,1)
     await commit('SET_DEBIT_CARDS', allCards)
   },
+  async addCard({commit, state}, cardName) {
+    const allCards = _.cloneDeep(state.debitCards);
+    const newCard = {
+      id: Math.floor(Math.random() * 10),
+      name: cardName,
+      exp: {
+        month: Math.floor(Math.random() * 10),
+        year: Math.floor(Math.random() * 99)
+      },
+      cvv: Math.floor(Math.random() * 999),
+      number: Math.random().toFixed(16).split('.')[1].toString(),
+      frozen: false
+    }
+    allCards.push(newCard)
+    await commit('SET_DEBIT_CARDS', allCards)
+  },
 }
 
 export const mutations = {

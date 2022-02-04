@@ -22,7 +22,7 @@
     <bottom-options-bar :current-card-frozen="currentCardFrozen" :class="{'mx-auto': isMobile}" @cancel-card="showCancelModal = true" @freeze-card="toggleCardFreeze(currentCard.id)"/>
    </div>
         <Dialog v-if="showModal">
-          <add-new-card-modal @cancel="showModal=false" />
+          <add-new-card-modal @on-submit="onAddNewCard" @cancel="showModal=false" />
         </Dialog>
           <Dialog v-if="showCancelModal">
             <cancel-card @remove-card="onRemoveCard" @cancel="showCancelModal=false"/>
@@ -57,11 +57,11 @@ export default {
   computed: {
     ...mapState('cards',['debitCards']),
     currentCardFrozen () {
-      return this.debitCards[this.$refs?.carousel?.getCurrentSlide()]?.frozen || false
+      return this.currentCard?.frozen || false;
     }
   },
   methods: {
-  ...mapActions('cards',['toggleCardFreeze','removeCard']),
+  ...mapActions('cards',['toggleCardFreeze','removeCard', 'addCard']),
   setCurrentSlide(event) {
     this.currentCard = this.debitCards[event.currentSlide]
   },
@@ -70,7 +70,13 @@ export default {
       await this.removeCard(this.currentCard.id)
       this.showCarousel = true;
       this.showCancelModal = false;
-    }
+    },
+      async onAddNewCard (name) {
+     this.showCarousel = false
+    await this.addCard(name)
+      this.showCarousel = true;
+      this.showModal = false;
+  }
   }
 
 };
