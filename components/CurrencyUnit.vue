@@ -3,7 +3,7 @@
     <div class="currency-container text-center">
         S$  
     </div>
-    <h1 class="ml-2">
+    <h1 class="ml-2" :class="isMobile ? 'text-white': 'text-black'">
         {{ currencyValueFormatted }}
     </h1>
    </div>

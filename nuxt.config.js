@@ -62,6 +62,7 @@ export default {
       Nunito: true
     }
   },
+  ssr: false
   // mode: 'static',
   //  router: {
   //     base: '/debit-card/'

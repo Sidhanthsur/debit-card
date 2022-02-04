@@ -1,5 +1,9 @@
-.debit-card__main-container {
+.main-container--mobile {
   background-color: $background-blue;
+}
+
+.main-container--desktop {
+  background-color: white;
 }
 
 .debit-card__top_container {
