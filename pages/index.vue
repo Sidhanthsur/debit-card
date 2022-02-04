@@ -16,9 +16,12 @@
       </div>
     </div>
 
-    <agile :dots="true" :nav-buttons="false" class="carousel-container mr-4">
+   <div class="card-action__container">
+      <agile :dots="true" :nav-buttons="false" class="carousel-container mr-4">
       <debit-card v-for="(card, index) in debitCards" :key="index" :card="card" />
     </agile>
+    <bottom-options-bar :class="{'mx-auto': isMobile}" />
+   </div>
         <Dialog v-if="showModal">
           <add-new-card-modal @cancel="showModal=false" />
         </Dialog>
@@ -37,9 +40,10 @@ import AddNewCard from "~/components/AddNewCard.vue";
 import DebitCard from "~/components/DebitCard.vue";
 import Dialog from '~/components/Dialog.vue';
 import AddNewCardModal from '~/components/AddNewCardModal.vue';
+import BottomOptionsBar from '~/components/BottomOptionsBar.vue';
 export default {
   name: "IndexPage",
-  components: { DebitCard, AddNewCard, agile: VueAgile, Dialog, AddNewCardModal },
+  components: { DebitCard, AddNewCard, agile: VueAgile, Dialog, AddNewCardModal, BottomOptionsBar },
   data () {
     return {
       showModal: false
@@ -54,10 +58,13 @@ export default {
 <style lang="scss" scoped>
 @import "~/assets/styles/debit.scss";
 
+.card-action__container {
+  margin-left: 24px;
+}
+
 .carousel-container {
   width: 400px;
   height: 280px;
-  margin-left: 24px;
   display: flex;
   justify-content: center;
 }
@@ -70,5 +77,9 @@ export default {
     height: 280px;
     margin: 0 auto;
   }
+  .card-action__container {
+    margin-left: 0px;
+  }
+
 }
 </style>
