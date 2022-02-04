@@ -12,13 +12,16 @@
           </div>
           <currency-unit />
         </div>
-        <add-new-card />
+        <add-new-card @onClick="showModal=true" />
       </div>
     </div>
 
     <agile :dots="true" :nav-buttons="false" class="carousel-container mr-4">
       <debit-card v-for="(card, index) in debitCards" :key="index" :card="card" />
     </agile>
+        <Dialog v-if="showModal">
+          <add-new-card-modal @cancel="showModal=false" />
+        </Dialog>
   </div>
 </template>
 
@@ -32,12 +35,20 @@ import { mapState } from "vuex";
 import AddNewCard from "~/components/AddNewCard.vue";
 
 import DebitCard from "~/components/DebitCard.vue";
+import Dialog from '~/components/Dialog.vue';
+import AddNewCardModal from '~/components/AddNewCardModal.vue';
 export default {
   name: "IndexPage",
-  components: { DebitCard, AddNewCard, agile: VueAgile },
+  components: { DebitCard, AddNewCard, agile: VueAgile, Dialog, AddNewCardModal },
+  data () {
+    return {
+      showModal: false
+    }
+  },
   computed: {
     ...mapState('cards',['debitCards'])
-  }
+  },
+
 };
 </script>
 <style lang="scss" scoped>

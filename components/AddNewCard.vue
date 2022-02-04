@@ -1,5 +1,5 @@
 <template>
-    <div class="flex items-center box-container box-container--responsive">
+    <div class="flex items-center box-container box-container--responsive" @click="$emit('onClick')">
        <img class="logo" :src="isMobile ? addMobile : add" alt="add-card" />
        <span class="ml-2">New Card</span>
     </div>

@@ -1,5 +1,5 @@
 <template>
-    <div class="main-container">
+    <div class="modal-container">
         
     </div>
 </template>
@@ -9,7 +9,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
- .main-container {
+ .modal-container {
      background-color: white;
      width: 100%;
      height: 180px;
