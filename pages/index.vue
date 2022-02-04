@@ -17,10 +17,10 @@
     </div>
 
    <div v-if="debitCards && debitCards.length" class="card-action__container">
-      <agile :dots="true" :nav-buttons="false" class="carousel-container mr-4" @after-change="setCurrentSlide($event)">
+      <agile ref="carousel" :dots="true" :nav-buttons="false" class="carousel-container mr-4" @after-change="setCurrentSlide($event)">
       <debit-card v-for="(card, index) in debitCards" :key="index" :card="card" />
     </agile>
-    <bottom-options-bar :class="{'mx-auto': isMobile}" @freeze-card="toggleCardFreeze(currentCard.id)"/>
+    <bottom-options-bar :current-card-frozen="currentCardFrozen" :class="{'mx-auto': isMobile}" @freeze-card="toggleCardFreeze(currentCard.id)"/>
    </div>
         <Dialog v-if="showModal">
           <add-new-card-modal @cancel="showModal=false" />
@@ -47,17 +47,20 @@ export default {
   data () {
     return {
       showModal: false,
-      currentCard: null
+      currentCard: null,
     }
   },
   computed: {
-    ...mapState('cards',['debitCards'])
+    ...mapState('cards',['debitCards']),
+    currentCardFrozen () {
+      return this.debitCards[this.$refs?.carousel?.getCurrentSlide() || 0].frozen
+    }
   },
   methods: {
-    ...mapActions('cards',['toggleCardFreeze']),
-setCurrentSlide(event) {
-  this.currentCard = this.debitCards[event.currentSlide]
-}
+  ...mapActions('cards',['toggleCardFreeze']),
+  setCurrentSlide(event) {
+    this.currentCard = this.debitCards[event.currentSlide]
+  }
   }
 
 };

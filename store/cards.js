@@ -44,7 +44,6 @@ export const actions = {
     const index = allCards.findIndex(findByIdFilter)
     allCards[index].frozen = !allCards[index].frozen 
     commit('SET_DEBIT_CARDS', allCards)
-    
   }
 }
 

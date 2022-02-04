@@ -113,7 +113,7 @@ export default {
 }
 
 .card-container--frozen {
-  background-color: #403a3b3c
+  background-color: grey;
 }
 
 .default-margin {
