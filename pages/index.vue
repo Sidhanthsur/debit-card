@@ -16,11 +16,11 @@
       </div>
     </div>
 
-   <div class="card-action__container">
-      <agile :dots="true" :nav-buttons="false" class="carousel-container mr-4">
+   <div v-if="debitCards && debitCards.length" class="card-action__container">
+      <agile :dots="true" :nav-buttons="false" class="carousel-container mr-4" @after-change="setCurrentSlide($event)">
       <debit-card v-for="(card, index) in debitCards" :key="index" :card="card" />
     </agile>
-    <bottom-options-bar :class="{'mx-auto': isMobile}" />
+    <bottom-options-bar :class="{'mx-auto': isMobile}" @freeze-card="toggleCardFreeze(currentCard.id)"/>
    </div>
         <Dialog v-if="showModal">
           <add-new-card-modal @cancel="showModal=false" />
@@ -34,7 +34,7 @@ import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 import { VueAgile } from "vue-agile";
 
 import "vue-carousel-card/styles/index.css";
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 import AddNewCard from "~/components/AddNewCard.vue";
 
 import DebitCard from "~/components/DebitCard.vue";
@@ -46,12 +46,19 @@ export default {
   components: { DebitCard, AddNewCard, agile: VueAgile, Dialog, AddNewCardModal, BottomOptionsBar },
   data () {
     return {
-      showModal: false
+      showModal: false,
+      currentCard: null
     }
   },
   computed: {
     ...mapState('cards',['debitCards'])
   },
+  methods: {
+    ...mapActions('cards',['toggleCardFreeze']),
+setCurrentSlide(event) {
+  this.currentCard = this.debitCards[event.currentSlide]
+}
+  }
 
 };
 </script>

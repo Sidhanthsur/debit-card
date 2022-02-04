@@ -1,6 +1,6 @@
 <template>
     <div class="options-container">
-       <button v-for="(option, index) in options" :key="index" class="action-container">
+       <button v-for="(option, index) in options" :key="index" class="action-container" @click="option.action">
             <img class="action-image" :src="option.image">  
             <div class="label-container">{{ option.label }}</div> 
         </button> 
@@ -17,23 +17,28 @@ export default {
       this.options = [
           {
               label: 'Freeze Card',
-              image: freeze
+              image: freeze,
+              action: () => this.$emit('freeze-card')
           },
            {
               label: 'Set spend limit',
-              image: spendlimit
+              image: spendlimit,
+              action: () => {}
           },
            {
               label: 'Add to GPay',
-              image: gpay
+              image: gpay,
+              action: () => {}
           },
            {
               label: 'Replace card',
-              image: replace
+              image: replace,
+              action: () => {}
           },
            {
               label: 'Cancel card',
-              image: deactivate
+              image: deactivate,
+              action: () => {}
           }
       ]
   }

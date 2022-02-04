@@ -8,7 +8,7 @@
         </div>
     </div>
    
-    <div class="card-container">
+    <div class="card-container" :class="{'card-container--frozen': card.frozen}">
       <img
         class="card-logo"
         src="~/static/aspireLong.svg"
@@ -110,6 +110,10 @@ export default {
   border-radius: 12px;
   color: white;
   padding: $default-spacing;
+}
+
+.card-container--frozen {
+  background-color: #403a3b3c
 }
 
 .default-margin {
