@@ -19,10 +19,13 @@
     <agile v-if="showCarousel" ref="carousel" :dots="true" :infinite="false" :nav-buttons="false" class="carousel-container mr-4" @after-change="setCurrentSlide($event)">
       <debit-card v-for="card in debitCards" :key="card.id" :card="card" />
     </agile>
-    <bottom-options-bar :current-card-frozen="currentCardFrozen" :class="{'mx-auto': isMobile}" @cancel-card="onRemoveCard" @freeze-card="toggleCardFreeze(currentCard.id)"/>
+    <bottom-options-bar :current-card-frozen="currentCardFrozen" :class="{'mx-auto': isMobile}" @cancel-card="showCancelModal = true" @freeze-card="toggleCardFreeze(currentCard.id)"/>
    </div>
         <Dialog v-if="showModal">
           <add-new-card-modal @cancel="showModal=false" />
+        </Dialog>
+          <Dialog v-if="showCancelModal">
+            <cancel-card @remove-card="onRemoveCard" @cancel="showCancelModal=false"/>
         </Dialog>
   </div>
 </template>
@@ -39,15 +42,16 @@ import AddNewCard from "~/components/AddNewCard.vue";
 import DebitCard from "~/components/DebitCard.vue";
 import Dialog from '~/components/Dialog.vue';
 import AddNewCardModal from '~/components/AddNewCardModal.vue';
-import BottomOptionsBar from '~/components/BottomOptionsBar.vue';
+import CancelCard from '~/components/CancelCard.vue';
 export default {
   name: "IndexPage",
-  components: { DebitCard, AddNewCard, agile: VueAgile, Dialog, AddNewCardModal, BottomOptionsBar },
+  components: { DebitCard, AddNewCard, agile: VueAgile, Dialog, AddNewCardModal, CancelCard },
   data () {
     return {
       showModal: false,
       currentCard: null,
-      showCarousel: true
+      showCarousel: true,
+      showCancelModal: false
     }
   },
   computed: {
@@ -65,6 +69,7 @@ export default {
       this.showCarousel = false
       await this.removeCard(this.currentCard.id)
       this.showCarousel = true;
+      this.showCancelModal = false;
     }
   }
 
