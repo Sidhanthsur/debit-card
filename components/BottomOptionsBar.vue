@@ -51,7 +51,7 @@ export default {
         {
           label: "Cancel card",
           image: deactivate,
-          action: () => {}
+          action: () => this.$emit("cancel-card")
         }
       ];
     },

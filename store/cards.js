@@ -44,7 +44,14 @@ export const actions = {
     const index = allCards.findIndex(findByIdFilter)
     allCards[index].frozen = !allCards[index].frozen 
     commit('SET_DEBIT_CARDS', allCards)
-  }
+  },
+  async removeCard({commit, state}, cardId) {
+    const allCards = _.cloneDeep(state.debitCards);
+    const findByIdFilter = card => card.id === cardId
+    const index = allCards.findIndex(findByIdFilter)
+    allCards.splice(index,1)
+    await commit('SET_DEBIT_CARDS', allCards)
+  },
 }
 
 export const mutations = {
