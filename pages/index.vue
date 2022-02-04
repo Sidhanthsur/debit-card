@@ -17,10 +17,7 @@
     </div>
 
     <agile :dots="true" :nav-buttons="false" class="carousel-container mr-4">
-      <debit-card key="1" :card="card" />
-      <debit-card key="2" :card="card" />
-      <debit-card key="3" :card="card" />
-      <debit-card key="4" :card="card" />
+      <debit-card v-for="(card, index) in debitCards" :key="index" :card="card" />
     </agile>
   </div>
 </template>
@@ -31,24 +28,15 @@ import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 import { VueAgile } from "vue-agile";
 
 import "vue-carousel-card/styles/index.css";
+import { mapState } from "vuex";
 import AddNewCard from "~/components/AddNewCard.vue";
 
 import DebitCard from "~/components/DebitCard.vue";
 export default {
   name: "IndexPage",
   components: { DebitCard, AddNewCard, agile: VueAgile },
-  data() {
-    return {
-      card: {
-        name: "Sidhanth Surana",
-        number: "4111111111111111",
-        exp: {
-          month: "03",
-          year: "22"
-        },
-        cvv: 233
-      }
-    };
+  computed: {
+    ...mapState('cards',['debitCards'])
   }
 };
 </script>
