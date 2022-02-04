@@ -85,11 +85,10 @@ export default {
 .tappable-container {
     background-color: white;
     width: 150px;
-    height: 44px;
+    height: 24px;
     margin-left: auto;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
-    position: absolute;
     right: 0;
     top: -$default-spacing;
     bottom: 10px;
@@ -141,4 +140,11 @@ export default {
 .cvv {
   margin-left: $default-spacing;
 }
+@media only screen and (max-width: 600px) {
+  .main-container {
+  width: 320px;
+  height: 220px;
+}
+}
+
 </style>
