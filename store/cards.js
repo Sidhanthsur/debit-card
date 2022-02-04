@@ -50,7 +50,6 @@ export const actions = {
 
 export const mutations = {
   SET_DEBIT_CARDS(state, cards) {
-    console.log('yolo')
     state.debitCards = cards
   },
 }
