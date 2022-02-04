@@ -1,12 +1,15 @@
 <template>
   <div :class="isMobile ? 'main-container--mobile' : 'main-container--desktop'">
    <div class="debit-card__top_container">
-      <app-header />
-    <div class="mt-2">
-      <div class="debit-card__balance-title" :class="isMobile ? 'text-white': 'text-black'">
+      <app-header v-if="isMobile"/>
+    <div class="mt-2 flex justify-between items-center">
+      <div>
+        <div class="debit-card__balance-title" :class="isMobile ? 'text-white': 'text-black'">
         Available Balance
       </div>
       <currency-unit />
+      </div>
+            <add-new-card />
     </div>
    </div>
 
@@ -17,13 +20,14 @@
 </template>
 
 <script>
+import AddNewCard from '~/components/AddNewCard.vue'
 
 import DebitCard from '~/components/DebitCard.vue'
 export default {
   name: 'IndexPage',
-  components: { DebitCard },
+  components: { DebitCard, AddNewCard },
   data () {
-    return {
+   return {
       card: {
         name: 'Sidhanth Surana',
         number: '4111111111111111',

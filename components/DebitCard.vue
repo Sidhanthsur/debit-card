@@ -10,7 +10,7 @@
    
     <div class="card-container">
       <img
-        class="logo"
+        class="card-logo"
         src="~/static/aspireLong.svg"
         alt="aspire-logo"
       />
@@ -32,7 +32,7 @@
         <div class="cvv">CVV: {{ showCardNumber ? card.cvv : '* * *' }}</div>
       </div>
 
-      <img class="logo" src="~/static/visaLogo.svg" alt="aspire-logo" />
+      <img class="card-logo" src="~/static/visaLogo.svg" alt="visa-logo" />
     </div>
   </div>
 </template>
@@ -117,7 +117,7 @@ export default {
   margin-top: $default-spacing;
 }
 
-.logo {
+.card-logo {
   margin-left: auto;
 }
 
