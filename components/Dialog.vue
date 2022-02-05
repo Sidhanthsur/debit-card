@@ -1,24 +1,22 @@
 <template>
-    <div class="modal-container">
-        <slot></slot>
-    </div>
+  <div class="modal-container">
+    <slot></slot>
+  </div>
 </template>
 <script>
 export default {
-    name: 'DialogBox'
-}
+  name: "DialogBox"
+};
 </script>
 <style lang="scss" scoped>
 .modal-container {
-  position: fixed; /* Stay in place */
-  z-index: 10; /* Sit on top */
+  position: fixed;
+  z-index: 10;
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,19 +1,21 @@
 <template>
   <div class="relative z-10 main-container">
     <div class="tappable-container" @click="toggleEyeClick">
-        <img :src="showCardNumber ? hideEye : showEye" alt="eye-icon" class="eye-icon">
-        <div></div>
-        <div class="ml-1">
-            {{ showCardNumber ? "Hide card number" : "Show card number" }}
-        </div>
-    </div>
-   
-    <div class="card-container" :class="{'card-container--frozen': card.frozen}">
       <img
-        class="card-logo"
-        src="~/static/aspireLong.svg"
-        alt="aspire-logo"
+        :src="showCardNumber ? hideEye : showEye"
+        alt="eye-icon"
+        class="eye-icon"
       />
+      <div class="ml-1">
+        {{ showCardNumber ? "Hide card number" : "Show card number" }}
+      </div>
+    </div>
+
+    <div
+      class="card-container"
+      :class="{ 'card-container--frozen': card.frozen }"
+    >
+      <img class="card-logo" src="~/static/aspireLong.svg" alt="aspire-logo" />
       <h1 class="default-margin">
         {{ card.name }}
       </h1>
@@ -29,7 +31,7 @@
 
       <div class="bottom-container">
         <div>Thru: {{ card.exp.month }} / {{ card.exp.year }}</div>
-        <div class="cvv">CVV: {{ showCardNumber ? card.cvv : '* * *' }}</div>
+        <div class="cvv">CVV: {{ showCardNumber ? card.cvv : "* * *" }}</div>
       </div>
 
       <img class="card-logo" src="~/static/visaLogo.svg" alt="visa-logo" />
@@ -37,9 +39,8 @@
   </div>
 </template>
 <script>
-
-import hideEye from '~/static/hideEye.svg'
-import showEye from '~/static/showEye.svg'
+import hideEye from "~/static/hideEye.svg";
+import showEye from "~/static/showEye.svg";
 export default {
   props: {
     card: {
@@ -55,21 +56,21 @@ export default {
   },
   created() {
     this.allNumbers = this.card.number.match(/.{1,4}/g);
-    this.hiddenArray = ['••••','••••','••••']
-    this.hiddenArray.push(this.allNumbers[3])
+    this.hiddenArray = ["••••", "••••", "••••"];
+    this.hiddenArray.push(this.allNumbers[3]);
     this.arrayOfCardNumbers = this.hiddenArray;
     this.hideEye = hideEye;
     this.showEye = showEye;
   },
   methods: {
-      toggleEyeClick () {
-          this.showCardNumber = !this.showCardNumber;
-          if (this.showCardNumber) {
-            this.arrayOfCardNumbers = this.allNumbers;
-          } else {
-            this.arrayOfCardNumbers = this.hiddenArray;
-          }
+    toggleEyeClick() {
+      this.showCardNumber = !this.showCardNumber;
+      if (this.showCardNumber) {
+        this.arrayOfCardNumbers = this.allNumbers;
+      } else {
+        this.arrayOfCardNumbers = this.hiddenArray;
       }
+    }
   }
 };
 </script>
@@ -83,26 +84,26 @@ export default {
 }
 
 .tappable-container {
-    background-color: white;
-    width: 150px;
-    height: 24px;
-    margin-left: auto;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-    right: 0;
-    top: -$default-spacing;
-    bottom: 10px;
-    z-index: -1;
-    font-size: 12px;
-    color: $aspire-green;
-    display: flex;
-    padding-top: 4px;
-    padding-left: 12px;
-    cursor: pointer;
+  background-color: white;
+  width: 150px;
+  height: 24px;
+  margin-left: auto;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  right: 0;
+  top: -$default-spacing;
+  bottom: 10px;
+  z-index: -1;
+  font-size: 12px;
+  color: $aspire-green;
+  display: flex;
+  padding-top: 4px;
+  padding-left: 12px;
+  cursor: pointer;
 }
 
 .eye-icon {
-  @include square(16px)
+  @include square(16px);
 }
 
 .card-container {
@@ -146,9 +147,8 @@ export default {
 }
 @media only screen and (max-width: 600px) {
   .main-container {
-  width: 320px;
-  height: 220px;
+    width: 320px;
+    height: 220px;
+  }
 }
-}
-
 </style>

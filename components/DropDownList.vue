@@ -1,87 +1,91 @@
 <template>
-    <div class="drop-down__main-container">
-        <div class="drop-down__header-container">
-       <div class="flex">
-            <img class="drop-down__image" :src="dropDownObject.image"/>
-            <div class="drop-down__title">{{ dropDownObject.title }}</div>
-       </div>
-       <button @click="expandList = !expandList">
-           <img  :src="expandList ? arrowUp : arrowDown" class="drop-down__arrow-image"/>
-       </button>
+  <div class="drop-down__main-container cursor-pointer" @click="expandList = !expandList">
+    <div class="drop-down__header-container">
+      <div class="flex">
+        <img class="drop-down__image" :src="dropDownObject.image" />
+        <div class="drop-down__title">{{ dropDownObject.title }}</div>
+      </div>
+      <button>
+        <img
+          :src="expandList ? arrowUp : arrowDown"
+          class="drop-down__arrow-image"
+        />
+      </button>
     </div>
-    <div v-show="expandList && list && list.length" class="drop-drown__list-container">
-        <drop-down-item v-for="(item, index) in list" :key="index" :item="item" />
+    <div
+      v-show="expandList && list && list.length"
+      class="drop-drown__list-container"
+    >
+      <drop-down-item v-for="(item, index) in list" :key="index" :item="item" />
     </div>
-    </div>
+  </div>
 </template>
 <script>
-import DropDownItem from './DropDownItem.vue'
-import arrowUp from "~/assets/images/down-arrow-1.svg"
-import arrowDown from "~/assets/images/down-arrow.svg"
+import DropDownItem from "./DropDownItem.vue";
+import arrowUp from "~/assets/images/down-arrow-1.svg";
+import arrowDown from "~/assets/images/down-arrow.svg";
 export default {
   components: { DropDownItem },
-    props: {
-        dropDownObject: {
-            type: Object,
-            required: true
-        },
-        list: {
-            type: Array,
-            required: true
-        }
+  props: {
+    dropDownObject: {
+      type: Object,
+      required: true
     },
-  data () {
-      return {
-          expandList: true
-      }
+    list: {
+      type: Array,
+      required: true
+    }
   },
-  created () {
-      this.arrowUp = arrowUp
-      this.arrowDown = arrowDown
-  }   
-}
+  data() {
+    return {
+      expandList: true
+    };
+  },
+  created() {
+    this.arrowUp = arrowUp;
+    this.arrowDown = arrowDown;
+  }
+};
 </script>
 <style lang="scss" scoped>
-
 .drop-down__main-container {
-       width: 366px;
-
+  width: 366px;
 }
 .drop-down__header-container {
-    width: 366px;
-    height: 72px;
-    border-radius: 8px;
-    background-color: #F5F9FF;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 24px;
-    box-shadow: 1px 1px 1px 1px lightgray;
+  width: 366px;
+  height: 72px;
+  border-radius: 8px;
+  background-color: #f5f9ff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  box-shadow: 1px 1px 1px 1px lightgray;
 }
 
 .drop-down__image {
-    @include square(24px)
+  @include square(24px);
 }
 
 .drop-down__title {
-    color: #0C365A;
-    font-size: 14px;
-    margin-left: 12px;
+  color: #0c365a;
+  font-size: 14px;
+  margin-left: 12px;
 }
 
 .drop-down__arrow-image {
-    @include square(20px)
+  @include square(20px);
 }
 
 .drop-drown__list-container {
-   border: 1px solid #F0F0F0;
-   border-top: 0px;
-   border-radius: 0px 0px 8px 8px;
+  border: 1px solid #f0f0f0;
+  border-top: 0px;
+  border-radius: 0px 0px 8px 8px;
 }
 
 @media only screen and (max-width: 600px) {
-   .drop-down__main-container {
-       margin: 12px auto;
-   } 
+  .drop-down__main-container {
+    margin: 12px auto;
+  }
 }
 </style>
