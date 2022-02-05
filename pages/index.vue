@@ -15,7 +15,8 @@
         <add-new-card @onClick="showModal = true" />
       </div>
     </div>
-    <div v-if="debitCards && debitCards.length" class="card-action__container">
+<div class="flex">
+      <div v-if="debitCards && debitCards.length" class="card-action__container">
       <agile
         v-if="showCarousel"
         ref="carousel"
@@ -34,6 +35,12 @@
         @freeze-card="onToggleFreeze"
       />
     </div>
+    <div class="drop-down__container">
+      <drop-down-list v-if="recentTransactions && recentTransactions.length" :drop-down-object="cardDropDown" :list="recentTransactions" />
+      <drop-down-list v-if="recentTransactions && recentTransactions.length" :drop-down-object="transactionDropDown" :list="recentTransactions" />
+
+    </div>
+</div>
     <Dialog v-if="showModal">
       <add-new-card-modal
         @on-submit="onAddNewCard"
@@ -62,6 +69,8 @@ import DebitCard from "~/components/DebitCard.vue";
 import Dialog from "~/components/Dialog.vue";
 import AddNewCardModal from "~/components/AddNewCardModal.vue";
 import CancelCard from "~/components/CancelCard.vue";
+import cardImage from "~/assets/images/Group11889.svg"
+import transactionImage from "~/assets/images/Group 11889-1.svg"
 export default {
   name: "IndexPage",
   components: {
@@ -82,12 +91,31 @@ export default {
   },
   computed: {
     ...mapState("cards", ["debitCards"]),
+    ...mapState("transactions", ["recentTransactions"]),
     currentCardFrozen() {
       return this.currentCard?.frozen || false;
     }
   },
+  created () {
+    this.transactionDropDown = {
+      image: transactionImage,
+      title: 'Recent transactions'
+    }
+     this.cardDropDown = {
+      image: cardImage,
+      title: 'Card Details'
+    }
+  },
+  async mounted () {
+    const promiseArray = [
+      this.fetchAllCards(),
+      this.fetchAllTransactions()
+    ]
+    await Promise.all(promiseArray) 
+  },
   methods: {
-    ...mapActions("cards", ["toggleCardFreeze", "removeCard", "addCard"]),
+    ...mapActions("cards", ["toggleCardFreeze", "removeCard", "addCard","fetchAllCards"]),
+    ...mapActions("transactions", ["fetchAllTransactions"]),
     setCurrentSlide(event) {
       this.currentCard = this.debitCards[event.currentSlide];
     },
@@ -143,6 +171,11 @@ export default {
     
     }
   }
+}
+
+.drop-down__container {
+  margin-top: 12px;
+  margin-left: 48px;
 }
 
 

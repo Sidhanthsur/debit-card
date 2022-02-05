@@ -1,6 +1,11 @@
 const _ = require('lodash');
 export const state = {
-    debitCards: [
+    debitCards: []
+}
+
+export const actions = {
+  fetchAllCards ({commit}) {
+    const dummyData = [
       {
         name: "Sidhanth Surana",
         number: "4111111111111111",
@@ -35,9 +40,8 @@ export const state = {
         id: 3
       }
     ]
-}
-
-export const actions = {
+    commit('SET_DEBIT_CARDS', dummyData)
+  },
   toggleCardFreeze({commit, state}, cardId) {
     const allCards = _.cloneDeep(state.debitCards);
     const findByIdFilter = card => card.id === cardId
