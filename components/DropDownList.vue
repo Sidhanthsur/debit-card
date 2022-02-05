@@ -38,7 +38,7 @@ export default {
   },
   data() {
     return {
-      expandList: true
+      expandList: false
     };
   },
   created() {

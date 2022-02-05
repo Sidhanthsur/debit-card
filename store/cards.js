@@ -1,12 +1,11 @@
 const _ = require('lodash');
 export const state = {
-    debitCards: []
+  debitCards: []
 }
 
 export const actions = {
-  fetchAllCards ({commit}) {
-    const dummyData = [
-      {
+  fetchAllCards({ commit }) {
+    const dummyData = [{
         name: "Sidhanth Surana",
         number: "4111111111111111",
         exp: {
@@ -42,21 +41,21 @@ export const actions = {
     ]
     commit('SET_DEBIT_CARDS', dummyData)
   },
-  toggleCardFreeze({commit, state}, cardId) {
+  toggleCardFreeze({ commit, state }, cardId) {
     const allCards = _.cloneDeep(state.debitCards);
     const findByIdFilter = card => card.id === cardId
     const index = allCards.findIndex(findByIdFilter)
-    allCards[index].frozen = !allCards[index].frozen 
+    allCards[index].frozen = !allCards[index].frozen
     commit('SET_DEBIT_CARDS', allCards)
   },
-  async removeCard({commit, state}, cardId) {
+  async removeCard({ commit, state }, cardId) {
     const allCards = _.cloneDeep(state.debitCards);
     const findByIdFilter = card => card.id === cardId
     const index = allCards.findIndex(findByIdFilter)
-    allCards.splice(index,1)
+    allCards.splice(index, 1)
     await commit('SET_DEBIT_CARDS', allCards)
   },
-  async addCard({commit, state}, cardName) {
+  async addCard({ commit, state }, cardName) {
     const allCards = _.cloneDeep(state.debitCards);
     const newCard = {
       id: Math.floor(Math.random() * 10),

@@ -8,13 +8,13 @@
   </div>
 </template>
 <script>
-import Vue from 'vue'
-import global from '~/mixins/gloabl'
-import SideNav from '~/components/SideNav.vue'
-import BottomBar from '~/components/BottomBar.vue'
-Vue.mixin(global)
+import Vue from "vue";
+import global from "~/mixins/gloabl";
+import SideNav from "~/components/SideNav.vue";
+import BottomBar from "~/components/BottomBar.vue";
+Vue.mixin(global);
 export default {
-    name: 'DefaultLayout',
+  name: "DefaultLayout",
   components: { SideNav, BottomBar }
-}
+};
 </script>

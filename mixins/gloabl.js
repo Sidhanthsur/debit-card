@@ -10,37 +10,36 @@ import AccountGrey from '~/assets/images/AccountGrey.svg'
 
 export default {
   computed: {
-      isMobile () {
-          return window.innerWidth <= 600;
-      },
-      navOptions () {
-        return [
-          {
-            label: 'Home',
-            logo: Home,
-            mobileLogo: HomeGrey
-          },
-          {
-            label: 'Cards',
-            logo: Card,
-            mobileLogo: Card,
-          },
-          {
-            label: 'Payments',
-            logo: Payments,
-            mobileLogo: PaymentsGrey
-          },
-          {
-            label: 'Credit',
-            logo: Credit,
-            mobileLogo: CreditGrey
-          },
-          {
-            label: 'Settings',
-            logo: Account,
-            mobileLogo: AccountGrey
-          }
-        ]
-      }
+    isMobile() {
+      return window.innerWidth <= 600;
+    },
+    navOptions() {
+      return [{
+          label: 'Home',
+          logo: Home,
+          mobileLogo: HomeGrey
+        },
+        {
+          label: 'Cards',
+          logo: Card,
+          mobileLogo: Card,
+        },
+        {
+          label: 'Payments',
+          logo: Payments,
+          mobileLogo: PaymentsGrey
+        },
+        {
+          label: 'Credit',
+          logo: Credit,
+          mobileLogo: CreditGrey
+        },
+        {
+          label: 'Settings',
+          logo: Account,
+          mobileLogo: AccountGrey
+        }
+      ]
+    }
   }
 }
