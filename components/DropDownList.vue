@@ -59,4 +59,10 @@ export default {
 .drop-down__arrow-image {
     @include square(20px)
 }
+
+@media only screen and (max-width: 600px) {
+   .drop-down__container {
+       margin: 12px auto;
+   } 
+}
 </style>

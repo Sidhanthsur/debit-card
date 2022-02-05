@@ -89,12 +89,15 @@ export default {
 
 @media only screen and (max-width: 600px) {
   .options-container {
-    width: 366px;
+    width: 100%;
     background-color: #edf3ff;
     display: flex;
     justify-content: space-around;
     padding: 20px;
-    border-radius: 16px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
   }
 }
 </style>

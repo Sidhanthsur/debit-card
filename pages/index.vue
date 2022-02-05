@@ -15,7 +15,7 @@
         <add-new-card @onClick="showModal = true" />
       </div>
     </div>
-<div class="flex">
+<div class="flex flex-col sm:flex-row">
       <div v-if="debitCards && debitCards.length" class="card-action__container">
       <agile
         v-if="showCarousel"
@@ -189,5 +189,10 @@ export default {
   .card-action__container {
     margin-left: 0px;
   }
+
+  .drop-down__container {
+    margin: 0px;
+    background-color: white;
+}
 }
 </style>
