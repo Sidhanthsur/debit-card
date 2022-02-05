@@ -26,6 +26,8 @@ export default {};
   height: 100vh;
   background-color: #0c365a;
   padding: 48px;
+  position: sticky;
+  top: 0px;
 }
 
 .side__sub-title {
