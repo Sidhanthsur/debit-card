@@ -1,7 +1,8 @@
 <template>
     <div class="new-card__main-container">
         <h1 class="mb-6">Adding a new card</h1>
-        <input v-model="name" class="input-container p-2" placeholder="Enter card holder name" type="text">
+        <input v-model.trim="name" class="input-container p-2" placeholder="Enter card holder name" type="text" @input="error = false">
+        <div v-if="error" class="text-red-600">Please enter a first name and a last name</div>
         <div class="mt-4">
             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click="onSubmit">Submit</button>
             <button
@@ -14,12 +15,18 @@
 export default {
   data () {
       return {
-          name: ''
+          name: '',
+          error: false
       }
   },
   methods: {
       onSubmit() {
-          this.$emit('on-submit', this.name)
+          if (/\s/g.test(this.name)) {
+            this.$emit('on-submit', this.name)
+          } else {
+              this.error = true;
+          }
+        
       }
   } 
 }
@@ -27,7 +34,7 @@ export default {
 <style lang="scss" scoped>
 .new-card__main-container {
     background-color: white;
-    width: 50%;
+    width: 40%;
     height: 200px;
     display: flex;
     justify-content: center;
