@@ -1,13 +1,13 @@
 <template>
-  <div class="options-container">
+  <div class="bottom-options-bar__container">
     <button
       v-for="(option, index) in options"
       :key="index"
-      class="action-container"
+      class="bottom-options-bar__action-container"
       @click="option.action"
     >
-      <img class="action-image" :src="option.image" />
-      <div class="label-container">{{ option.label }}</div>
+      <img class="bottom-options-bar__action-image" :src="option.image" />
+      <div class="bottom-options-bar__label-container">{{ option.label }}</div>
     </button>
   </div>
 </template>
@@ -62,7 +62,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.options-container {
+.bottom-options-bar__container {
   width: 400px;
   background-color: #edf3ff;
   display: flex;
@@ -71,24 +71,24 @@ export default {
   border-radius: 16px;
 }
 
-.action-container {
+.bottom-options-bar__action-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.action-image {
+.bottom-options-bar__action-image {
   @include square(32px);
 }
 
-.label-container {
+.bottom-options-bar__label-container {
   font-size: 13px;
   text-align: center;
 }
 
 @media only screen and (max-width: 600px) {
-  .options-container {
+  .bottom-options-bar__container {
     width: 100%;
     background-color: #edf3ff;
     display: flex;
