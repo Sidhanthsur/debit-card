@@ -15,32 +15,43 @@
         <add-new-card @onClick="showModal = true" />
       </div>
     </div>
-<div class="flex flex-col sm:flex-row">
-      <div v-if="debitCards && debitCards.length" class="card-action__container">
-      <agile
-        v-if="showCarousel"
-        ref="carousel"
-        :dots="true"
-        :infinite="false"
-        :nav-buttons="false"
-        class="carousel-container mr-4"
-        @after-change="setCurrentSlide($event)"
+    <div class="flex flex-col sm:flex-row">
+      <div
+        v-if="debitCards && debitCards.length"
+        class="card-action__container"
       >
-        <debit-card v-for="card in debitCards" :key="card.id" :card="card" />
-      </agile>
-      <bottom-options-bar
-        :current-card-frozen="currentCardFrozen"
-        :class="{ 'mx-auto': isMobile }"
-        @cancel-card="showCancelModal = true"
-        @freeze-card="onToggleFreeze"
-      />
+        <agile
+          v-if="showCarousel"
+          ref="carousel"
+          :dots="true"
+          :infinite="false"
+          :nav-buttons="false"
+          class="carousel-container mr-4"
+          @after-change="setCurrentSlide($event)"
+        >
+          <debit-card v-for="card in debitCards" :key="card.id" :card="card" />
+        </agile>
+        <bottom-options-bar
+          :current-card-frozen="currentCardFrozen"
+          class="sm:mx-auto"
+          @cancel-card="showCancelModal = true"
+          @freeze-card="onToggleFreeze"
+        />
+      </div>
+      <div class="drop-down__container sm:mx-auto">
+        <drop-down-list
+          v-if="recentTransactions && recentTransactions.length"
+          :drop-down-object="cardDropDown"
+          :list="recentTransactions"
+        />
+        <drop-down-list
+          v-if="recentTransactions && recentTransactions.length"
+          :drop-down-object="transactionDropDown"
+          :list="recentTransactions"
+          class="mt-4"
+        />
+      </div>
     </div>
-    <div class="drop-down__container">
-      <drop-down-list v-if="recentTransactions && recentTransactions.length" :drop-down-object="cardDropDown" :list="recentTransactions" />
-      <drop-down-list v-if="recentTransactions && recentTransactions.length" :drop-down-object="transactionDropDown" :list="recentTransactions" />
-
-    </div>
-</div>
     <Dialog v-if="showModal">
       <add-new-card-modal
         @on-submit="onAddNewCard"
@@ -69,8 +80,8 @@ import DebitCard from "~/components/DebitCard.vue";
 import Dialog from "~/components/Dialog.vue";
 import AddNewCardModal from "~/components/AddNewCardModal.vue";
 import CancelCard from "~/components/CancelCard.vue";
-import cardImage from "~/assets/images/Group11889.svg"
-import transactionImage from "~/assets/images/Group 11889-1.svg"
+import cardImage from "~/assets/images/Group11889.svg";
+import transactionImage from "~/assets/images/Group 11889-1.svg";
 export default {
   name: "IndexPage",
   components: {
@@ -96,25 +107,27 @@ export default {
       return this.currentCard?.frozen || false;
     }
   },
-  created () {
+  created() {
     this.transactionDropDown = {
       image: transactionImage,
-      title: 'Recent transactions'
-    }
-     this.cardDropDown = {
+      title: "Recent transactions"
+    };
+    this.cardDropDown = {
       image: cardImage,
-      title: 'Card Details'
-    }
+      title: "Card Details"
+    };
   },
-  async mounted () {
-    const promiseArray = [
-      this.fetchAllCards(),
-      this.fetchAllTransactions()
-    ]
-    await Promise.all(promiseArray) 
+  async mounted() {
+    const promiseArray = [this.fetchAllCards(), this.fetchAllTransactions()];
+    await Promise.all(promiseArray);
   },
   methods: {
-    ...mapActions("cards", ["toggleCardFreeze", "removeCard", "addCard","fetchAllCards"]),
+    ...mapActions("cards", [
+      "toggleCardFreeze",
+      "removeCard",
+      "addCard",
+      "fetchAllCards"
+    ]),
     ...mapActions("transactions", ["fetchAllTransactions"]),
     setCurrentSlide(event) {
       this.currentCard = this.debitCards[event.currentSlide];
@@ -157,18 +170,17 @@ export default {
     height: 12px;
     .agile__dots {
       .agile__dot {
-      @include square(8px);
-      border-radius: 50%;
-      background-color: #01D16780;
-      margin: 0 4px;
+        @include square(8px);
+        border-radius: 50%;
+        background-color: #01d16780;
+        margin: 0 4px;
       }
       .agile__dot--current {
-      width: 16px;
-      height: 8px;
-      border-radius: 8px;
-      background-color: #01D167;
+        width: 16px;
+        height: 8px;
+        border-radius: 8px;
+        background-color: #01d167;
       }
-    
     }
   }
 }
@@ -177,7 +189,6 @@ export default {
   margin-top: 12px;
   margin-left: 48px;
 }
-
 
 @media only screen and (max-width: 600px) {
   .carousel-container {
@@ -191,8 +202,11 @@ export default {
   }
 
   .drop-down__container {
-    margin: 0px;
     background-color: white;
-}
+    margin: 0px;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+  }
 }
 </style>

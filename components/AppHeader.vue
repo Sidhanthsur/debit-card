@@ -3,7 +3,7 @@
         <fa
           v-if="showBackButton"
           class="app_header__back-button"
-          :icon="['fas', 'chevron-left']" />
+          :icon="['fas', 'chevron-right']" />
         <img src="~/static/Logo.svg" class="app_header__logo" />
     </div>
 </template>

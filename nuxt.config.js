@@ -59,12 +59,8 @@ export default {
   },
   googleFonts: {
     families: {
-      Nunito: true
+      'Open+Sans': true
     }
   },
   ssr: false
-  // mode: 'static',
-  //  router: {
-  //     base: '/debit-card/'
-  //  }
 }

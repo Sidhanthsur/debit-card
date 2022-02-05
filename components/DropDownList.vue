@@ -9,7 +9,7 @@
            <img  :src="expandList ? arrowUp : arrowDown" class="drop-down__arrow-image"/>
        </button>
     </div>
-    <div v-show="expandList && list && list.length">
+    <div v-show="expandList && list && list.length" class="drop-drown__list-container">
         <drop-down-item v-for="(item, index) in list" :key="index" :item="item" />
     </div>
     </div>
@@ -56,6 +56,7 @@ export default {
     justify-content: space-between;
     align-items: center;
     padding: 24px;
+    box-shadow: 1px 1px 1px 1px lightgray;
 }
 
 .drop-down__image {
@@ -72,8 +73,14 @@ export default {
     @include square(20px)
 }
 
+.drop-drown__list-container {
+   border: 1px solid #F0F0F0;
+   border-top: 0px;
+   border-radius: 0px 0px 8px 8px;
+}
+
 @media only screen and (max-width: 600px) {
-   .drop-down__container {
+   .drop-down__main-container {
        margin: 12px auto;
    } 
 }
