@@ -1,10 +1,10 @@
 import { mount } from '@vue/test-utils'
-import NuxtLogo from '@/components/AddNewCardModal.vue'
+import AddNewCardModal from '@/components/AddNewCardModal.vue'
 
 describe('Add new card modal', () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = mount(NuxtLogo)
+    wrapper = mount(AddNewCardModal)
   })
   test('Main Container is visible', () => {
     expect(wrapper.find('[data-test="main-container"]').exists()).toBe(true)
