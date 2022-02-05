@@ -81,6 +81,7 @@ export default {
   border: 1px solid #f0f0f0;
   border-top: 0px;
   border-radius: 0px 0px 8px 8px;
+  background-color: white;
 }
 
 @media only screen and (max-width: 600px) {

@@ -1,6 +1,7 @@
 <template>
   <div :class="isMobile ? 'main-container--mobile' : 'main-container--desktop'">
-    <div class="debit-card__top_container">
+  <div class="flex flex-col utility__sticky">
+      <div class="debit-card__top_container">
       <app-header v-if="isMobile" />
       <div class="mt-2 flex justify-between items-center">
         <div>
@@ -15,11 +16,7 @@
         <add-new-card @onClick="showModal = true" />
       </div>
     </div>
-    <div class="flex flex-col sm:flex-row">
-      <div
-        v-if="debitCards && debitCards.length"
-        class="card-action__container"
-      >
+    <div  v-if="debitCards && debitCards.length"   class="card-action__container">
         <agile
           v-if="showCarousel"
           ref="carousel"
@@ -31,14 +28,21 @@
         >
           <debit-card v-for="card in debitCards" :key="card.id" :card="card" />
         </agile>
+    </div>
+  </div>
+    <div class="flex flex-col sm:flex-row">
+      <div
+        v-if="debitCards && debitCards.length"
+        class="card-action__container z-50"
+      >
         <bottom-options-bar
           :current-card-frozen="currentCardFrozen"
-          class="sm:mx-auto"
+          class="sm:mx-auto z-50"
           @cancel-card="showCancelModal = true"
           @freeze-card="onToggleFreeze"
         />
       </div>
-      <div class="drop-down__container sm:mx-auto">
+      <div class="drop-down__container sm:mx-auto z-50">
         <drop-down-list
           v-if="recentTransactions && recentTransactions.length"
           :drop-down-object="cardDropDown"
@@ -207,6 +211,11 @@ export default {
     flex-direction: column;
     display: flex;
     justify-content: center;
+  }
+  
+  .utility__sticky {
+    position: sticky;
+    top: 0px;
   }
 }
 </style>
