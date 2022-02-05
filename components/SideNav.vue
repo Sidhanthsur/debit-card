@@ -21,7 +21,7 @@ export default {
 <style lang="scss" scoped>
 .side__main-container {
     width: 340px;
-    height: 770px;
+    height: 100vh;
     background-color: #0C365A;
     padding: 48px;
 }
