@@ -94,10 +94,7 @@ export default {
     display: flex;
     justify-content: space-around;
     padding: 20px;
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
+    border-radius: 16px 16px 0px 0px;
   }
 }
 </style>

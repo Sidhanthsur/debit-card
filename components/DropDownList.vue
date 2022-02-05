@@ -1,5 +1,6 @@
 <template>
-    <div class="drop-down__container">
+    <div class="drop-down__main-container">
+        <div class="drop-down__header-container">
        <div class="flex">
             <img class="drop-down__image" :src="dropDownObject.image"/>
             <div class="drop-down__title">{{ dropDownObject.title }}</div>
@@ -8,11 +9,17 @@
            <img  :src="expandList ? arrowUp : arrowDown" class="drop-down__arrow-image"/>
        </button>
     </div>
+    <div v-show="expandList && list && list.length">
+        <drop-down-item v-for="(item, index) in list" :key="index" :item="item" />
+    </div>
+    </div>
 </template>
 <script>
+import DropDownItem from './DropDownItem.vue'
 import arrowUp from "~/assets/images/down-arrow-1.svg"
 import arrowDown from "~/assets/images/down-arrow.svg"
 export default {
+  components: { DropDownItem },
     props: {
         dropDownObject: {
             type: Object,
@@ -35,7 +42,12 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.drop-down__container {
+
+.drop-down__main-container {
+       width: 366px;
+
+}
+.drop-down__header-container {
     width: 366px;
     height: 72px;
     border-radius: 8px;

@@ -14,7 +14,8 @@ export default {
 <style lang="scss" scoped>
 
 .bottom__main-container {
- position: absolute;
+ background-color: white;
+ position: fixed;
  bottom: 0px;
  height: 56px;
  padding-top: 4px;
