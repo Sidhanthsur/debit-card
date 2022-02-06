@@ -1,6 +1,6 @@
 <template>
   <div class="cancel-card__main-container">
-    <div class="cancel-card__header-title mb-6">Do you want to cancel the card ?</div>
+    <div class="cancel-card__header-title mb-6 text-center">Do you want to cancel the card ?</div>
     <div class="mt-4">
       <button
         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
@@ -29,7 +29,7 @@ export default {
 <style lang="scss" scoped>
 .cancel-card__main-container {
   background-color: white;
-  width: 30%;
+  width: 40%;
   height: 200px;
   display: flex;
   justify-content: center;

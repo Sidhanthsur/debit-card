@@ -1,5 +1,5 @@
 <template>
-  <div :class="isMobile ? 'landing__container--mobile' : 'landing__container--desktop'">
+  <div class="landing__container">
     <div class="landing__top_container">
       <app-header v-if="isMobile" />
       <div class="mt-2 flex justify-between items-center">
@@ -152,12 +152,8 @@ export default {
 };
 </script>
 <style lang="scss">
-.landing__container--mobile {
-  background-color: $aspire-dark-blue;
-  margin-bottom: 80px;
-}
 
-.landing__container--desktop {
+.landing__container {
   background-color: white;
   margin-bottom: 80px;
 }
@@ -211,6 +207,11 @@ export default {
 }
 
 @media only screen and (max-width: 768px) {
+  .landing__container {
+    background-color: $aspire-dark-blue;
+    margin-bottom: 80px;
+  }
+
   .carousel-container {
     width: 366px;
     height: 280px;

@@ -1,6 +1,6 @@
-export const state = {
+export const state = () => ({
     recentTransactions: []
-  }
+  })
   
   export const actions = {
     fetchAllTransactions({ commit }) {

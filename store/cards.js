@@ -1,7 +1,7 @@
 const _ = require('lodash');
-export const state = {
+export const state = () => ({
   debitCards: []
-}
+})
 
 export const actions = {
   fetchAllCards({ commit }) {
