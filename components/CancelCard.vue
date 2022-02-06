@@ -1,14 +1,18 @@
 <template>
-  <div class="cancel-card__main-container">
+  <div
+    class="cancel-card__main-container"
+    data-test="main-container">
     <div class="cancel-card__header-title mb-6 text-center">Do you want to cancel the card ?</div>
     <div class="mt-4">
       <button
+        data-test="yes-button"
         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         @click="$emit('remove-card')"
       >
         Yes
       </button>
       <button
+        data-test="no-button"
         class="bg-transparent text-blue-700 font-semibold py-2 px-4 border border-blue-500 rounded"
         @click="$emit('cancel')"
       >
