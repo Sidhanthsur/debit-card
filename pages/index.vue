@@ -25,10 +25,21 @@
           ref="carousel"
           :dots="true"
           :infinite="false"
-          :nav-buttons="false"
+          :nav-buttons="!isMobile"
           class="carousel-container mr-4"
           @after-change="setCurrentSlide($event)"
         >
+         <template slot="prevButton">
+           <fa
+            class="landing__carousel-nav-button"
+            :icon="['fas', 'chevron-left']"
+          />
+         </template>
+        <template slot="nextButton"> 
+          <fa
+            class="landing__carousel-nav-button"
+            :icon="['fas', 'chevron-right']"
+          /></template>
           <debit-card v-for="card in debitCards" :key="card.id" :card="card" />
         </agile>
         <bottom-options-bar
@@ -177,6 +188,7 @@ export default {
 .carousel-container {
   width: 400px;
   height: 280px;
+  margin-bottom: $default-spacing-unit;
   /* display: flex;
   justify-content: center; */
   .agile__list {
@@ -184,6 +196,17 @@ export default {
   }
   .agile__actions {
     height: 12px;
+    align-items: center;
+    .agile__nav-button--prev:disabled {
+      .landing__carousel-nav-button {
+        color: $aspire-green-light;
+      }
+    }
+    .agile__nav-button--next:disabled {
+      .landing__carousel-nav-button {
+        color: $aspire-green-light;
+      }
+    }
     .agile__dots {
       .agile__dot {
         @include square(8px);
@@ -199,6 +222,11 @@ export default {
       }
     }
   }
+}
+
+.landing__carousel-nav-button {
+  @include square($default-size-unit);
+  color: $aspire-green;
 }
 
 .drop-down__container {

@@ -23,3 +23,11 @@ $ npm run generate
 ## Hosted on heroku
 
 [https://aspire-test-app.herokuapp.com/](https://aspire-test-app.herokuapp.com/)
+
+# Design additions
+
+## Addition of nav bar under card carousel on desktop
+
+![footer-image](./static/footer.png)
+
+The right and left arrows were added as I felt it helped the user instead of using the mouse to change. On mobile they are removed as swipe gesture is easy
