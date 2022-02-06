@@ -1,5 +1,5 @@
 <template>
-  <div class="app_header__main-container">
+  <div class="app_header__main-container" data-test="main-container">
     <fa
       v-if="showBackButton"
       class="app_header__back-button"

@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import AddNewCardModal from '@/components/AddNewCardModal.vue'
 
-describe('Add new card modal', () => {
+describe('Component: AddNewCardModal', () => {
   let wrapper;
   beforeEach(() => {
     wrapper = mount(AddNewCardModal)

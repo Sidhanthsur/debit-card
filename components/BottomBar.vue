@@ -1,9 +1,12 @@
 <template>
-  <div class="flex mt-3 justify-around bottom-bar__main-container">
+  <div 
+    class="flex mt-3 justify-around bottom-bar__main-container"
+    data-test="main-container">
     <button
       v-for="(option, index) in navOptions"
       :key="index"
       class="flex flex-col items-center"
+      data-test="buttons-container"
     >
       <img class="bottom-bar__option-logo" :src="option.mobileLogo" />
       <span class="bottom-bar__option-text">{{ option.label }}</span>
