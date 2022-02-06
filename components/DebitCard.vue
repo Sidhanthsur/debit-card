@@ -124,7 +124,7 @@ export default {
 .debit__number-container {
   @include mediumText;
   display: flex;
-  font-weight: 600;
+  font-weight: bold;
 }
 
 .debit__number {
