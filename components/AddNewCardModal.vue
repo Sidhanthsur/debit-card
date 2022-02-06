@@ -9,7 +9,7 @@
       data-test="input-container"
       @input="error = false"
     />
-    <div v-if="error" class="text-red-600">
+    <div v-if="error" class="text-red-600"  data-test="error-container">
       Please enter a first name and a last name
     </div>
     <div class="mt-4">

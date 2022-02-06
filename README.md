@@ -44,4 +44,4 @@ Could not complete as desktop styling needed a bit more time
 
 ## Unit test case
 
-Had time to finish few sanity test on basic components. With more time could deep dive and test methods , store etc and cover more.
+Had time to finish few sanity test on basic components and testing button functionalities.
