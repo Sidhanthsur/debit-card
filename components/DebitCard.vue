@@ -86,12 +86,12 @@ export default {
 .tappable-container {
   background-color: white;
   width: 150px;
-  height: 24px;
+  height: $default-size-unit;
   margin-left: auto;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   right: 0;
-  top: -$default-spacing;
+  top: -$default-spacing-unit;
   bottom: 10px;
   z-index: -1;
   font-size: 12px;
@@ -110,7 +110,7 @@ export default {
   background-color: $aspire-green;
   border-radius: 12px;
   color: white;
-  padding: $default-spacing;
+  padding: $default-spacing-unit;
 }
 
 .card-container--frozen {
@@ -118,7 +118,7 @@ export default {
 }
 
 .default-margin {
-  margin-top: $default-spacing;
+  margin-top: $default-spacing-unit;
 }
 
 .card-logo {
@@ -132,7 +132,7 @@ export default {
 }
 
 .number {
-  margin-right: $default-spacing;
+  margin-right: $default-spacing-unit;
 }
 
 .bottom-container {
@@ -143,7 +143,7 @@ export default {
 }
 
 .cvv {
-  margin-left: $default-spacing;
+  margin-left: $default-spacing-unit;
 }
 @media only screen and (max-width: 768px) {
   .main-container {

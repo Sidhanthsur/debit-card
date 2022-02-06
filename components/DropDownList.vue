@@ -59,16 +59,16 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px;
+  padding: $default-spacing-unit;
   box-shadow: 1px 1px 1px 1px lightgray;
 }
 
 .drop-down__image {
-  @include square(24px);
+  @include square($default-size-unit);
 }
 
 .drop-down__title {
-  color: #0c365a;
+  color: $aspire-dark-blue;
   font-size: 14px;
   margin-left: 12px;
 }

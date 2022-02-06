@@ -24,8 +24,8 @@ export default {};
 .side__main-container {
   width: 340px;
   height: 100vh;
-  background-color: #0c365a;
-  padding: 48px;
+  background-color: $aspire-dark-blue;
+  padding: $default-spacing-unit * 2;
   position: sticky;
   top: 0px;
 }

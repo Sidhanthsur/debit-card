@@ -4,8 +4,7 @@
 }
 
 .app_header__back-button {
-  width: 24px;
-  height: 24px;
+  @include square($default-size-unit);
   color: white;
 }
 

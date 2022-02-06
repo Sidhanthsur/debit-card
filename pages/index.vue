@@ -1,11 +1,11 @@
 <template>
-  <div :class="isMobile ? 'main-container--mobile' : 'main-container--desktop'">
-    <div class="debit-card__top_container">
+  <div :class="isMobile ? 'landing__container--mobile' : 'landing__container--desktop'">
+    <div class="landing__top_container">
       <app-header v-if="isMobile" />
       <div class="mt-2 flex justify-between items-center">
         <div>
           <div
-            class="debit-card__balance-title"
+            class="landing__top_container__balance-title"
             :class="isMobile ? 'text-white' : 'text-black'"
           >
             Available Balance
@@ -152,10 +152,30 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~/assets/styles/debit.scss";
+.landing__container--mobile {
+  background-color: $aspire-dark-blue;
+  margin-bottom: 80px;
+}
+
+.landing__container--desktop {
+  background-color: white;
+  margin-bottom: 80px;
+}
+
+.landing__top_container {
+  padding: $default-spacing-unit;
+}
+
+.landing__top_container__balance-title {
+  @include mediumText;
+}
+
+.landing__card-container {
+  margin-top: $default-spacing-unit;
+}
 
 .card-action__container {
-  margin-left: 24px;
+  margin-left: $default-spacing-unit;
 }
 
 .carousel-container {
@@ -172,22 +192,22 @@ export default {
       .agile__dot {
         @include square(8px);
         border-radius: 50%;
-        background-color: #01d16780;
+        background-color: $aspire-green-light;
         margin: 0 4px;
       }
       .agile__dot--current {
         width: 16px;
         height: 8px;
         border-radius: 8px;
-        background-color: #01d167;
+        background-color: $aspire-green;
       }
     }
   }
 }
 
 .drop-down__container {
-  margin-top: 24px;
-  margin-left: 48px;
+  margin-top: $default-spacing-unit;
+  margin-left: $default-spacing-unit * 2;
 }
 
 @media only screen and (max-width: 768px) {

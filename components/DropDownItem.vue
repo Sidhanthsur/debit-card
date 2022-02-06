@@ -86,7 +86,7 @@ export default {
 @import "~/assets/scss/colors";
 
 .item__main-container {
-  padding: 24px;
+  padding: $default-spacing-unit;
   border-bottom: 1px solid #f5f5f5;
   display: flex;
   justify-content: space-between;
@@ -96,7 +96,7 @@ export default {
   border-bottom: none;
 }
 .item__image-container {
-  @include square(48px);
+  @include square($default-size-unit * 2);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -119,7 +119,7 @@ export default {
 
 .item__mini-card-container {
   background-color: #325baf;
-  width: 24px;
+  width: $default-spacing-unit;
   height: 20px;
   border-radius: 8px;
   display: flex;
