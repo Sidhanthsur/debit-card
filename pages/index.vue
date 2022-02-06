@@ -152,8 +152,8 @@ export default {
       this.showCarousel = true;
       this.showModal = false;
     },
-    onToggleFreeze() {
-      this.toggleCardFreeze(this.currentCard.id);
+    async onToggleFreeze() {
+      await this.toggleCardFreeze(this.currentCard.id);
       this.currentCard.frozen = !this.currentCard.frozen;
     }
   }
