@@ -43,7 +43,7 @@ export default {
   font-size: 24px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
   .cancel-card__main-container {
     background-color: white;
     width: 90%;

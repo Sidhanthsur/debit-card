@@ -83,7 +83,7 @@ export default {
   border-radius: 0px 0px 8px 8px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
   .drop-down__main-container {
     margin: 12px auto;
   }

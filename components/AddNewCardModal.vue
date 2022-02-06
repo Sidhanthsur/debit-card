@@ -66,7 +66,7 @@ export default {
   border-radius: 4px;
   width: 90%;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
   .new-card-modal__main-container {
     background-color: white;
     width: 90%;

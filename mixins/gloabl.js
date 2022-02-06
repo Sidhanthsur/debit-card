@@ -9,9 +9,14 @@ import CreditGrey from '~/assets/images/CreditGrey.svg'
 import AccountGrey from '~/assets/images/AccountGrey.svg'
 
 export default {
+  data() {
+    return {
+      windowWidth: window.innerWidth
+    }
+  },
   computed: {
     isMobile() {
-      return window.innerWidth <= 600;
+      return this.windowWidth <= 768;
     },
     navOptions() {
       return [{
@@ -40,6 +45,19 @@ export default {
           mobileLogo: AccountGrey
         }
       ]
+    }
+  },
+  mounted() {
+    window.addEventListener('resize', this.onResize);
+  },
+
+  beforeDestroy() {
+    window.removeEventListener('resize', this.onResize);
+  },
+
+  methods: {
+    onResize() {
+      this.windowWidth = window.innerWidth
     }
   }
 }

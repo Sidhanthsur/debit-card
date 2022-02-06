@@ -37,7 +37,7 @@ export default {
   @include square(16px);
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
   .new-card__container--responsive {
     background-color: transparent;
     color: #23cefd;

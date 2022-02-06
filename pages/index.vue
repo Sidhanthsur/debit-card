@@ -15,7 +15,7 @@
         <add-new-card @onClick="showModal = true" />
       </div>
     </div>
-    <div class="flex flex-col sm:flex-row">
+    <div class="flex flex-col lg:flex-row justify-center">
       <div
         v-if="debitCards && debitCards.length"
         class="card-action__container"
@@ -33,7 +33,7 @@
         </agile>
         <bottom-options-bar
           :current-card-frozen="currentCardFrozen"
-          class="sm:mx-auto"
+          class="lg:mx-auto"
           @cancel-card="showCancelModal = true"
           @freeze-card="onToggleFreeze"
         />
@@ -186,11 +186,11 @@ export default {
 }
 
 .drop-down__container {
-  margin-top: 12px;
+  margin-top: 24px;
   margin-left: 48px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
   .carousel-container {
     width: 366px;
     height: 280px;

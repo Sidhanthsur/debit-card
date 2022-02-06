@@ -87,7 +87,7 @@ export default {
   text-align: center;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
   .bottom-options-bar__container {
     width: 100%;
     background-color: #edf3ff;
