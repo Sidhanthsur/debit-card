@@ -1,6 +1,6 @@
 <template>
-  <div class="drop-down__main-container cursor-pointer" @click="expandList = !expandList">
-    <div class="drop-down__header-container">
+  <div class="drop-down__main-container cursor-pointer">
+    <div class="drop-down__header-container" @click="expandList = !expandList">
       <div class="flex">
         <img class="drop-down__image" :src="dropDownObject.image" />
         <div class="drop-down__title">{{ dropDownObject.title }}</div>

@@ -86,7 +86,8 @@ export default {
 @import "~/assets/scss/colors";
 
 .item__main-container {
-  padding: $default-spacing-unit;
+  margin: 0px $default-spacing-unit;
+  padding: $default-spacing-unit 0px;
   border-bottom: 1px solid #f5f5f5;
   display: flex;
   justify-content: space-between;
