@@ -51,6 +51,7 @@ export default {
   .cancel-card__main-container {
     background-color: white;
     width: 90%;
+    padding: $default-spacing-unit;
     height: 200px;
     display: flex;
     justify-content: center;
