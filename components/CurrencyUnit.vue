@@ -1,5 +1,7 @@
 <template>
-  <div class="currency-unit__main-container">
+  <div
+    class="currency-unit__main-container"
+    data-test="main-container">
     <div class="currency-unit__currency-container text-center">
       S$
     </div>
