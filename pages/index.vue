@@ -18,7 +18,7 @@
     <div class="flex flex-col lg:flex-row justify-center">
       <div
         v-if="debitCards && debitCards.length"
-        class="card-action__container"
+        class="lading__card-action-container"
       >
         <agile
           v-if="showCarousel"
@@ -26,7 +26,7 @@
           :dots="true"
           :infinite="false"
           :nav-buttons="!isMobile"
-          class="carousel-container mr-4"
+          class="landing__carousel-container mr-4"
           @after-change="setCurrentSlide($event)"
         >
          <template slot="prevButton">
@@ -49,7 +49,7 @@
           @freeze-card="onToggleFreeze"
         />
       </div>
-      <div class="drop-down__container sm:mx-auto">
+      <div class="landing__drop-down-container sm:mx-auto">
         <drop-down-list
           v-if="recentTransactions && recentTransactions.length"
           :drop-down-object="cardDropDown"
@@ -181,11 +181,11 @@ export default {
   margin-top: $default-spacing-unit;
 }
 
-.card-action__container {
+.lading__card-action-container {
   margin-left: $default-spacing-unit;
 }
 
-.carousel-container {
+.landing__carousel-container {
   width: 400px;
   height: 280px;
   margin-bottom: $default-spacing-unit;
@@ -229,7 +229,7 @@ export default {
   color: $aspire-green;
 }
 
-.drop-down__container {
+.landing__drop-down-container {
   margin-top: $default-spacing-unit;
   margin-left: $default-spacing-unit * 2;
 }
@@ -240,17 +240,17 @@ export default {
     margin-bottom: 80px;
   }
 
-  .carousel-container {
+  .landing__carousel-container {
     width: 366px;
     height: 280px;
     margin: 0 auto;
   }
 
-  .card-action__container {
+  .lading__card-action-container {
     margin-left: 0px;
   }
 
-  .drop-down__container {
+  .landing__drop-down-container {
     background-color: white;
     margin: 0px;
     flex-direction: column;
