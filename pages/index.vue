@@ -79,20 +79,17 @@
 </template>
 
 <script>
-import "vue-slick-carousel/dist/vue-slick-carousel.css";
-import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
-import { VueAgile } from "vue-agile";
 
-import "vue-carousel-card/styles/index.css";
+import { VueAgile } from "vue-agile";
 import { mapState, mapActions } from "vuex";
 import AddNewCard from "~/components/AddNewCard.vue";
-
 import DebitCard from "~/components/DebitCard.vue";
 import Dialog from "~/components/Dialog.vue";
 import AddNewCardModal from "~/components/AddNewCardModal.vue";
 import CancelCard from "~/components/CancelCard.vue";
 import cardImage from "~/assets/images/Group11889.svg";
 import transactionImage from "~/assets/images/Group 11889-1.svg";
+
 export default {
   name: "IndexPage",
   components: {
