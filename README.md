@@ -36,7 +36,7 @@ The right and left arrows were added as I felt it helped the user instead of usi
 
 ## Scrolling behavior mobile
 
-I got it working on branch [task/debit-screen](https://github.com/Sidhanthsur/debit-card/tree/task/debit-screen) You can switch branch and test it too.
+According to design the top part should go behind the scrollable content. I got it working on branch [task/sticky-header](https://github.com/Sidhanthsur/debit-card/tree/task/sticky-header) You can switch branch and test it too.
 
 A video can be found [here](https://drive.google.com/file/d/1Qr-k5ti3LlQYp80A9YqUDMwnaf91KpvS/view)
 
